@@ -1,0 +1,76 @@
+<!doctype html>
+<div class="grid">
+<article class="card">
+<img src="images/placeholder-1.jpg" alt="Köynək">
+<div class="meta">
+<div>
+<div class="pname">Essential T-Shirt</div>
+<div class="pmeta">Sizes: S, M, L</div>
+</div>
+<div>
+<div class="pprice">₼45</div>
+</div>
+</div>
+<button class="order-btn" data-name="Essential T-Shirt">Əlaqə ilə sifariş et</button>
+</article>
+
+
+<article class="card">
+<img src="images/placeholder-2.jpg" alt="Salvar">
+<div class="meta">
+<div>
+<div class="pname">Relax Joggers</div>
+<div class="pmeta">Cotton blend</div>
+</div>
+<div>
+<div class="muted">New</div>
+</div>
+</div>
+<button class="order-btn" data-name="Relax Joggers">Əlaqə ilə sifariş et</button>
+</article>
+
+
+<article class="card">
+<img src="images/placeholder-3.jpg" alt="Hoodie">
+<div class="meta">
+<div>
+<div class="pname">Celyra Hoodie</div>
+<div class="pmeta">Oversize fit</div>
+</div>
+<div>
+<div class="pprice">₼75</div>
+</div>
+</div>
+<button class="order-btn" data-name="Celyra Hoodie">Əlaqə ilə sifariş et</button>
+</article>
+
+
+</div>
+</section>
+
+
+</main>
+
+
+<footer>
+<div class="muted">© Celyra Wear</div>
+<div class="foot-right">
+<a class="icon-btn" href="https://wa.me/994554709700" target="_blank" rel="noreferrer">WhatsApp</a>
+<a class="icon-btn" href="https://instagram.com/celyra.store" target="_blank" rel="noreferrer">Instagram</a>
+</div>
+</footer>
+</div>
+
+
+<script>
+// same interactions as index
+document.querySelectorAll('.order-btn').forEach(btn=>{
+btn.addEventListener('click', ()=>{
+const name = btn.dataset.name || 'Məhsul haqqında sorğu';
+const url = `https://wa.me/994554709700?text=` + encodeURIComponent(`Salam, mən Celyra Store-dan "${name}" sifariş etmək istəyirəm.`);
+window.open(url,'_blank');
+});
+});
+</script>
+</body>
+</html>
