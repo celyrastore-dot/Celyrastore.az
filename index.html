@@ -1,0 +1,65 @@
+<!doctype html>
+
+
+<section id="contact" class="section contact">
+<div class="contact-cards">
+<div class="card small">
+<h3>WhatsApp</h3>
+<p class="muted">+994 55 470 97 00</p>
+<p class="muted small-text">Sifariş etmək üçün düyməyə klikləyin, məhsul adını avtomatik göndərəcəyik.</p>
+<button class="order-btn" onclick="openWhatsApp('General inquiry')">WhatsApp ilə yaz</button>
+</div>
+
+
+<div class="card small">
+<h3>Instagram</h3>
+<p class="muted">@celyra.store</p>
+<p class="muted">@celyra.wear</p>
+<div class="social-row">
+<a class="icon" href="https://instagram.com/celyra.store" target="_blank" rel="noreferrer">Instagram</a>
+<a class="icon" href="https://instagram.com/celyra.wear" target="_blank" rel="noreferrer">Celyra Wear</a>
+</div>
+</div>
+</div>
+</section>
+
+
+</main>
+
+
+<footer>
+<div class="foot-left">© Celyra Store</div>
+<div class="foot-right">
+<a class="icon-btn" href="https://wa.me/994554709700" target="_blank" rel="noreferrer">WhatsApp</a>
+<a class="icon-btn" href="https://instagram.com/celyra.store" target="_blank" rel="noreferrer">Instagram</a>
+</div>
+</footer>
+</div>
+
+
+<script>
+const WHATSAPP = '994554709700';
+function openWhatsApp(productName){
+const text = `Salam, mən Celyra Store-dan \"${productName}\" sifariş etmək istəyirəm. Zəhmət olmasa ətraflı məlumat verin.`;
+const url = `https://wa.me/${WHATSAPP}?text=` + encodeURIComponent(text);
+window.open(url,'_blank');
+}
+
+
+document.querySelectorAll('.order-btn').forEach(btn=>{
+btn.addEventListener('click', ()=>{
+const name = btn.dataset.name || 'Məhsul haqqında sorğu';
+openWhatsApp(name);
+});
+});
+
+
+// Hero thumbnail swap
+document.querySelectorAll('.thumbs img').forEach(img=>{
+img.addEventListener('click', ()=>{
+document.getElementById('heroImage').style.backgroundImage = `url('${img.src}')`;
+});
+});
+</script>
+</body>
+</html>
