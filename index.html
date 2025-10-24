@@ -7,31 +7,28 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <!-- ...other content... -->
+  <main>
+    <section id="contact" class="section contact">
+      <div class="contact-cards">
+        <div class="card small">
+          <h3>WhatsApp</h3>
+          <p class="muted">+994 55 470 97 00</p>
+          <p class="muted small-text">Sifariş etmək üçün düyməyə klikləyin, məhsul adını avtomatik göndərəcəyik.</p>
+          <button type="button" class="order-btn" data-name="General inquiry" aria-label="WhatsApp ilə yaz">WhatsApp ilə yaz</button>
+        </div>
 
-  <section id="contact" class="section contact">
-    <div class="contact-cards">
-      <div class="card small">
-        <h3>WhatsApp</h3>
-        <p class="muted">+994 55 470 97 00</p>
-        <p class="muted small-text">Sifariş etmək üçün düyməyə klikləyin, məhsul adını avtomatik göndərəcəyik.</p>
-        <!-- Use data-name instead of inline onclick; type="button" prevents accidental form submit -->
-        <button type="button" class="order-btn" data-name="General inquiry" aria-label="WhatsApp ilə yaz">WhatsApp ilə yaz</button>
-      </div>
-
-      <div class="card small">
-        <h3>Instagram</h3>
-        <p class="muted">@celyra.store</p>
-        <p class="muted">@celyra.wear</p>
-        <div class="social-row">
-          <a class="icon" href="https://instagram.com/celyra.store" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a class="icon" href="https://instagram.com/celyra.wear" target="_blank" rel="noopener noreferrer">Celyra Wear</a>
+        <div class="card small">
+          <h3>Instagram</h3>
+          <p class="muted">@celyra.store</p>
+          <p class="muted">@celyra.wear</p>
+          <div class="social-row">
+            <a class="icon" href="https://instagram.com/celyra.store" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="icon" href="https://instagram.com/celyra.wear" target="_blank" rel="noopener noreferrer">Celyra Wear</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ...other content... -->
+    </section>
+  </main>
 
   <footer>
     <div class="foot-left">© Celyra Store</div>
@@ -46,4 +43,38 @@
     const WHATSAPP = '994554709700';
 
     function openWhatsApp(productName){
-      const text = `Salam, mən Celyra Store-dan \
+      const text = 'Salam, mən Celyra Store-dan "' + productName + '" sifariş etmək istəyirəm. Zəhmət olmasa ətraflı məlumat verin.';
+      const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text);
+
+      // Try to open in a new tab and decouple opener; fallback to same-tab navigation if blocked
+      const win = window.open(url, '_blank');
+      if (win) {
+        try { win.opener = null; } catch (e) { /* ignore */ }
+      } else {
+        window.location.href = url;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.order-btn').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          var name = btn.dataset.name || 'Məhsul haqqında sorğu';
+          openWhatsApp(name);
+        });
+      });
+
+      var thumbs = document.querySelectorAll('.thumbs img');
+      if (thumbs && thumbs.length) {
+        var hero = document.getElementById('heroImage');
+        thumbs.forEach(function(img){
+          img.addEventListener('click', function(){
+            if (hero) hero.style.backgroundImage = "url('" + img.src + "')";
+          });
+        });
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
