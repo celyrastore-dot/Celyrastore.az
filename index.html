@@ -1,11 +1,10 @@
-
 <!doctype html>
 <html lang="az">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Celyra Store</title>
-  <!-- your CSS and other head content -->
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <!-- ...other content... -->
@@ -47,42 +46,4 @@
     const WHATSAPP = '994554709700';
 
     function openWhatsApp(productName){
-      const text = `Salam, mən Celyra Store-dan "${productName}" sifariş etmək istəyirəm. Zəhmət olmasa ətraflı məlumat verin.`;
-      const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
-
-      // open and immediately decouple opener for security
-      const win = window.open(url, '_blank', 'noopener');
-      if (win) {
-        try { win.opener = null; } catch (e) { /* ignore */ }
-      } else {
-        // Popup was blocked
-        alert('Popup blocked. Zəhmət olmasa bu saytda popuplara icazə verin və ya WhatsApp linki açın.');
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Attach handlers to order buttons
-      document.querySelectorAll('.order-btn').forEach(btn => {
-        btn.addEventListener('click', e => {
-          e.preventDefault();
-          // Make sure each product button has its own data-name value
-          const name = btn.dataset.name || 'Məhsul haqqında sorğu';
-          openWhatsApp(name);
-        });
-      });
-
-      // Hero thumbnail swap: guard in case .thumbs or #heroImage don't exist
-      const thumbs = document.querySelectorAll('.thumbs img');
-      if (thumbs && thumbs.length) {
-        const hero = document.getElementById('heroImage');
-        thumbs.forEach(img => {
-          img.addEventListener('click', () => {
-            if (hero) hero.style.backgroundImage = `url('${img.src}')`;
-          });
-        });
-      }
-    });
-  })();
-  </script>
-</body>
-</html>
+      const text = `Salam, mən Celyra Store-dan \
