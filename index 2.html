@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Celyra.store — Mağaza</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Celyra.store</div>
+      <nav>
+        <a href="#products">Məhsullar</a>
+        <a href="#celyra-wear">Celyra.Wear</a>
+        <a id="cart-btn" href="#cart">Səbət (<span id="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner container">
+        <h1>Celyra.store</h1>
+        <p>Sadə, təmiz və animasiyalı dizayn — mavi və ağ tonlarda.</p>
+        <a class="cta" href="#products">İndi bax</a>
+      </div>
+      <div class="hero-waves"></div>
+    </section>
+
+    <section id="products" class="container products-section">
+      <h2>Ən Yeni Məhsullar</h2>
+      <div id="products-grid" class="products-grid">
+        <!-- məhsul kartları JS vasitəsilə doldurulacaq -->
+      </div>
+    </section>
+
+    <section id="celyra-wear" class="container wear-section">
+      <h2>Celyra.Wear</h2>
+      <div id="wear-grid" class="products-grid">
+        <!-- wear məhsulları JS ilə gələcək -->
+      </div>
+    </section>
+
+    <section id="contact" class="container contact-section">
+      <div class="contact-card">
+        <h3>Sualınız var?</h3>
+        <p>Bizə WhatsApp ilə yazın və sifarişinizi tamamlayın.</p>
+        <a id="whatsapp-btn" class="whatsapp" href="#">WhatsApp ilə əlaqə</a>
+      </div>
+    </section>
+
+    <section class="animated-foot">
+      <div class="marquee">
+        <span>Yeni gələnlər • Pulsuz çatdırılma 100₼+ • Məhdud sayda stok</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product modal (Apple Store tipli təqdimat üçün) -->
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-inner">
+      <button id="modal-close" class="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <div>Celyra.store © 2025</div>
+    <div>Instagram: <a href="https://instagram.com/celyra.store" target="_blank">@celyra.store</a></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
